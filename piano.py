@@ -3,8 +3,8 @@ import pygame
 # Initialize pygame mixer
 pygame.mixer.init()
 
-# Load the G4 note audio file
-C = "Piano Notes/C.wav"  
+# replace file path with your original file path in your machine
+C = "Piano Notes/C.wav"  # <<< file path
 C_note = pygame.mixer.Sound(C)
 
 D = "Piano Notes/D.wav"
@@ -25,15 +25,16 @@ A5_note = pygame.mixer.Sound(A5)
 A = "Piano Notes/A4.wav"  
 A_note = pygame.mixer.Sound(A)
 
-# Initialize pygame for event handling
+# Create a window frame / its Optional not mandatory
+# Setup window with width of 700 & 500 dimensions
 pygame.init()
 window_width = 700
 window_height = 500
 screen = pygame.display.set_mode((window_width, window_height))
 pygame.display.set_caption("Piano Light!")
 
-# Load and scale the background image
-background_image = pygame.image.load("keys.jpg")  # Replace with the actual file path
+# lets load & transform background image for your window 
+background_image = pygame.image.load("keys.jpg")  # Replace with the actual file path in your PC
 background_image = pygame.transform.scale(background_image, (window_width, window_height))
 
 running = True
@@ -42,22 +43,22 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_s:  # When 'S' key is pressed
+            if event.key == pygame.K_s:  # When 's' key is pressed
                 C_note.play()
-            if event.key == pygame.K_d:  # When 'S' key is pressed
+            if event.key == pygame.K_d:  # When 'd' key is pressed
                 D_note.play()
-            if event.key == pygame.K_f:  # When 'S' key is pressed
+            if event.key == pygame.K_f:  # When 'f' key is pressed
                 E_note.play()
-            if event.key == pygame.K_g:  # When 'S' key is pressed
+            if event.key == pygame.K_g:  # When 'g' key is pressed
                 F_note.play()
-            if event.key == pygame.K_h:  # When 'S' key is pressed
+            if event.key == pygame.K_h:  # When 'h' key is pressed
                 G_note.play()
-            if event.key == pygame.K_a:  # When 'S' key is pressed
+            if event.key == pygame.K_a:  # When 'a' key is pressed
                 A5_note.play()
-            if event.key == pygame.K_j:  # When 'S' key is pressed
+            if event.key == pygame.K_j:  # When 'j' key is pressed
                 A_note.play()
 
-    # Draw the background image
+    # Setup background image on your window frame
     screen.blit(background_image, (0, 0))
 
     # Update the display
